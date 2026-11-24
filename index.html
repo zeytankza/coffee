@@ -2,684 +2,1353 @@
 <html lang="ru" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stories Coffee & Bakery — Спешелти кофейня и ремесленная пекарня</title>
-  <meta name="description" content="Спешелти кофе свежей обжарки, авторские напитки, горячая выпечка из печи с 08:00 и сытные завтраки весь день. Быстрый предзаказ to-go в WhatsApp.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Stories Specialty Coffee & Bakery | Спешелти кофейня и ремесленная пекарня</title>
+  <meta name="description" content="Спешелти кофе свежей обжарки 100% арабика, авторские напитки, выпечка из печи каждое утро в Краснодаре. Быстрый предзаказ to-go в WhatsApp без очереди.">
   
-  <!-- Fonts -->
+  <!-- Fonts: Google Fonts (Unbounded + Onest) - 100% Cyrillic support -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Unbounded:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Unbounded:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS 3.4 CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             brand: {
-              dark: '#12100E',
-              card: '#1C1916',
-              border: '#2E2823',
-              amber: '#D97706',
-              amberLight: '#F59E0B',
-              cream: '#FDFBF7',
-              muted: '#A8A29E'
+              dark: '#080A0F',
+              card: '#111520',
+              cardHover: '#181E2E',
+              border: 'rgba(255, 255, 255, 0.08)',
+              amber: '#F59E0B',
+              amberHover: '#D97706',
+              mint: '#10B981',
+              muted: '#94A3B8',
+              light: '#F8FAFC'
             }
           },
           fontFamily: {
-            heading: ['Unbounded', 'sans-serif'],
-            sans: ['Onest', 'sans-serif']
+            title: ['Unbounded', 'sans-serif'],
+            body: ['Onest', 'sans-serif']
           }
         }
       }
     }
   </script>
   
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  
   <style>
-    body { font-family: 'Onest', sans-serif; background-color: #12100E; color: #FDFBF7; }
-    h1, h2, h3, .font-heading { font-family: 'Unbounded', sans-serif; }
-    .scrollbar-none::-webkit-scrollbar { display: none; }
-    .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
-    .glass-card { background: rgba(28, 25, 22, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(217, 119, 6, 0.15); }
-    .gold-gradient { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); }
+    body {
+      font-family: 'Onest', sans-serif;
+      background-color: #080A0F;
+      color: #F8FAFC;
+    }
+    h1, h2, h3, h4, .font-title {
+      font-family: 'Unbounded', sans-serif;
+    }
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .glass-nav {
+      background: rgba(8, 10, 15, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
   </style>
 </head>
-<body class="bg-brand-dark text-brand-cream antialiased selection:bg-brand-amber selection:text-white">
+<body class="antialiased selection:bg-brand-amber selection:text-black">
 
-  <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="bg-brand-amber/10 border-b border-brand-amber/20 py-2 px-4 text-center text-xs sm:text-sm text-brand-amberLight flex items-center justify-center gap-2">
-    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-    <span>Завтраки и свежая выпечка каждый день с 08:00 до 21:00 • Скидка 20% на выпечку после 20:00</span>
+  <!-- TOP ANNOUNCEMENT TICKER -->
+  <div class="bg-gradient-to-r from-amber-600 to-amber-500 text-black py-2 px-4 text-xs font-bold text-center tracking-wider uppercase">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2">
+      <i data-lucide="sparkles" class="w-4 h-4"></i>
+      <span>Свежая выпечка из печи каждое утро в 08:00 • Скидка 20% на первый предзаказ To-Go в WhatsApp</span>
+    </div>
   </div>
 
-  <!-- NAVIGATION -->
-  <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-brand-amber/15 border border-brand-amber/30 flex items-center justify-center text-brand-amberLight">
-          <i data-lucide="coffee" class="w-6 h-6"></i>
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center text-black font-title font-black text-xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+          S
         </div>
         <div>
-          <span class="font-heading font-bold text-lg tracking-wider text-brand-cream block leading-tight">STORIES</span>
-          <span class="text-[10px] tracking-widest text-brand-muted uppercase block">Coffee & Bakery</span>
+          <span class="font-title font-bold text-lg tracking-tight block text-white group-hover:text-brand-amber transition-colors">STORIES</span>
+          <span class="text-[10px] tracking-widest text-brand-muted uppercase font-semibold block">Specialty & Bakery</span>
         </div>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
-        <a href="#menu" class="hover:text-brand-amberLight transition-colors whitespace-nowrap">Меню напитков</a>
-        <a href="#bakery" class="hover:text-brand-amberLight transition-colors whitespace-nowrap">Пекарня & Завтраки</a>
-        <a href="#loyalty" class="hover:text-brand-amberLight transition-colors whitespace-nowrap">Программа лояльности</a>
-        <a href="#contacts" class="hover:text-brand-amberLight transition-colors whitespace-nowrap">Контакты & Локация</a>
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#menu" class="hover:text-brand-amber transition-colors">Меню</a>
+        <a href="#quiz" class="hover:text-brand-amber transition-colors flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-brand-amber animate-pulse"></span>
+          Квиз вкуса
+        </a>
+        <a href="#bakery" class="hover:text-brand-amber transition-colors">Пекарня</a>
+        <a href="#team" class="hover:text-brand-amber transition-colors">Команда</a>
+        <a href="#reviews" class="hover:text-brand-amber transition-colors">Отзывы</a>
+        <a href="#contacts" class="hover:text-brand-amber transition-colors">Контакты</a>
       </nav>
 
-      <!-- Right Action -->
-      <div class="flex items-center gap-4">
-        <button onclick="toggleCart()" class="relative p-2.5 rounded-xl bg-brand-card border border-brand-border hover:border-brand-amber/50 text-brand-cream transition-all flex items-center gap-2">
-          <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-amberLight"></i>
-          <span class="hidden sm:inline text-xs font-semibold">Предзаказ</span>
-          <span id="cartBadge" class="hidden px-2 py-0.5 text-xs font-bold rounded-full bg-brand-amber text-brand-dark">0</span>
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <!-- Cart Button -->
+        <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-xl bg-brand-card hover:bg-brand-cardHover border border-brand-border text-white transition-all flex items-center gap-2">
+          <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-amber"></i>
+          <span id="cart-counter" class="hidden font-title text-xs font-bold px-1.5 py-0.5 rounded-full bg-brand-amber text-black">0</span>
         </button>
-        <a href="https://wa.me/79000000000?text=Здравствуйте!%20Хочу%20уточнить%20наличие%20десертов" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-xl gold-gradient text-brand-dark font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-opacity whitespace-nowrap shadow-lg shadow-brand-amber/20">
+
+        <!-- WhatsApp Direct Pre-order -->
+        <a href="https://wa.me/79181621620?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%B5%D0%B4%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%20%D1%81%20%D1%81%D0%BE%D0%B1%D0%BE%D0%B9%20to-go" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-semibold text-sm transition-all shadow-lg shadow-amber-500/20 active:scale-95">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>Написать в WhatsApp</span>
+          <span>Заказ в WhatsApp</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative overflow-hidden py-16 lg:py-24 border-b border-brand-border">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-amber/10 via-transparent to-transparent pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <!-- 1. HERO SECTION -->
+  <section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-32 border-b border-brand-border">
+    <!-- Subtle Background Glows (Physical Warm Tones) -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-amber-500/10 blur-[140px] pointer-events-none rounded-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
+        <!-- Left: Text Content -->
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-amber/10 border border-brand-amber/20 text-brand-amberLight text-xs font-semibold uppercase tracking-wider">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-            <span>100% Спешелти арабика 84+ Q-Grade</span>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-card border border-amber-500/30 text-amber-400 text-xs font-semibold">
+            <i data-lucide="award" class="w-4 h-4 text-brand-amber"></i>
+            <span>100% Спешелти Арабика Q-Grader 85+ • Краснодар</span>
           </div>
 
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-cream leading-[1.15] tracking-tight">
-            Кофе со смыслом и горячая выпечка из печи
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] text-white">
+            Кофе со смыслом. <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">Свежая выпечка</span> из печи каждое утро.
           </h1>
 
-          <p class="text-base sm:text-lg text-brand-muted max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-            Каждое утро выпекаем ремесленные круассаны на сливочном масле 82.5%, готовим нежные сырники весь день и варим фильтр свежего урожая Эфиопии и Кении.
+          <p class="text-base sm:text-lg text-brand-muted max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            Ремесленное зерно микро-лотов из Эфиопии и Колумбии, хрустящие круассаны на новозеландском сливочном масле 82.5% и быстрый предзаказ to-go без ожидания в очереди.
           </p>
 
+          <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-            <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-xl gold-gradient text-brand-dark font-extrabold text-sm uppercase tracking-wider text-center shadow-xl shadow-brand-amber/25 hover:brightness-110 transition-all flex items-center justify-center gap-2">
-              <i data-lucide="book-open" class="w-4 h-4"></i>
-              <span>Открыть мобильное меню</span>
+            <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-amber hover:bg-brand-amberHover text-black font-title font-bold text-sm tracking-wide transition-all shadow-xl shadow-amber-500/25 flex items-center justify-center gap-2 active:scale-95">
+              <i data-lucide="coffee" class="w-4 h-4"></i>
+              <span>Открыть меню с ценами</span>
             </a>
-            <button onclick="toggleCart()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-card border border-brand-border hover:border-brand-amber/40 text-brand-cream font-bold text-sm tracking-wide text-center transition-all flex items-center justify-center gap-2">
-              <i data-lucide="clock" class="w-4 h-4 text-brand-amberLight"></i>
-              <span>Предзаказ to-go без очереди</span>
-            </button>
+            <a href="#quiz" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-card hover:bg-brand-cardHover border border-brand-border text-white font-medium text-sm transition-all flex items-center justify-center gap-2 active:scale-95">
+              <i data-lucide="help-circle" class="w-4 h-4 text-brand-amber"></i>
+              <span>Подобрать напиток за 30 сек</span>
+            </a>
           </div>
 
-          <!-- Feature badges -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-brand-border/60 text-left">
-            <div class="p-3 rounded-lg bg-brand-card/60 border border-brand-border">
-              <div class="text-brand-amberLight font-heading font-bold text-lg">08:00</div>
-              <div class="text-[11px] text-brand-muted">Горячий кофе и выпечка с утра</div>
+          <!-- Physical Proofs Bar -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-brand-border max-w-lg mx-auto lg:mx-0">
+            <div>
+              <div class="font-title text-2xl font-black text-white">85+</div>
+              <div class="text-xs text-brand-muted mt-0.5">Оценка спешелти зерен SCA</div>
             </div>
-            <div class="p-3 rounded-lg bg-brand-card/60 border border-brand-border">
-              <div class="text-brand-amberLight font-heading font-bold text-lg">100%</div>
-              <div class="text-[11px] text-brand-muted">Натуральное сливочное масло</div>
+            <div>
+              <div class="font-title text-2xl font-black text-amber-400">08:00</div>
+              <div class="text-xs text-brand-muted mt-0.5">Первая горячая выпечка</div>
             </div>
-            <div class="p-3 rounded-lg bg-brand-card/60 border border-brand-border">
-              <div class="text-brand-amberLight font-heading font-bold text-lg">10 мин</div>
-              <div class="text-[11px] text-brand-muted">Готовность предзаказа to-go</div>
-            </div>
-            <div class="p-3 rounded-lg bg-brand-card/60 border border-brand-border">
-              <div class="text-emerald-400 font-heading font-bold text-lg flex items-center gap-1">
-                <i data-lucide="paw-print" class="w-4 h-4"></i> Dog
-              </div>
-              <div class="text-[11px] text-brand-muted">Рады гостям с питомцами</div>
+            <div>
+              <div class="font-title text-2xl font-black text-white">3 мин</div>
+              <div class="text-xs text-brand-muted mt-0.5">Выдача предзаказа to-go</div>
             </div>
           </div>
         </div>
 
-        <!-- Hero Visual Carousel / Card -->
+        <!-- Right: Visual Editorial Card -->
         <div class="lg:col-span-5 relative">
-          <div class="relative rounded-3xl overflow-hidden border border-brand-amber/30 shadow-2xl shadow-black/80 aspect-[4/5]">
-            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80" alt="Кофейня Stories" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
+          <div class="relative rounded-3xl overflow-hidden border border-brand-border shadow-2xl bg-brand-card group">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80" alt="Спешелти кофейня Stories в Краснодаре" class="w-full h-[460px] object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-black/30"></div>
             
-            <div class="absolute bottom-6 left-6 right-6 p-5 rounded-2xl glass-card">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs uppercase tracking-wider text-brand-amberLight font-bold">Выбор бариста сегодня</span>
-                <span class="text-xs px-2 py-0.5 rounded bg-brand-amber/20 text-brand-amberLight font-mono">290 ₽</span>
+            <!-- Float Tag 1: Roasting -->
+            <div class="absolute top-5 left-5 px-3.5 py-2 rounded-xl bg-brand-dark/90 backdrop-blur-md border border-brand-border text-xs font-semibold flex items-center gap-2 shadow-lg">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Свежая обжарка этой недели</span>
+            </div>
+
+            <!-- Float Card 2: WhatsApp Quick Order -->
+            <div class="absolute bottom-5 inset-x-5 p-4 rounded-2xl bg-brand-card/95 backdrop-blur-md border border-brand-border shadow-xl">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider block">Удобно утром</span>
+                  <h4 class="font-title text-sm font-bold text-white mt-0.5">Предзаказ к точному времени</h4>
+                </div>
+                <a href="#menu" class="px-3.5 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-black font-bold text-xs transition-colors">
+                  Заказать
+                </a>
               </div>
-              <div class="font-heading font-bold text-base text-brand-cream">Кедровый Раф на кокосовом молоке</div>
-              <div class="text-xs text-brand-muted mt-1">Натуральная сибирская хвоя, жженый тростниковый сахар, дробленая шишка</div>
-              <button onclick="addToCart('Кедровый Раф на кокосовом', 290)" class="mt-3 w-full py-2 rounded-lg bg-brand-amber text-brand-dark font-bold text-xs uppercase tracking-wider hover:bg-brand-amberLight transition-colors">
-                + Добавить в предзаказ
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. BEAN & STANDARDS STRIP -->
+  <section class="py-12 border-b border-brand-border bg-brand-card/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="flex items-center gap-4 p-4 rounded-2xl bg-brand-card border border-brand-border">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+            <i data-lucide="flame" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="font-title text-sm font-bold text-white">Собственная обжарка</div>
+            <div class="text-xs text-brand-muted mt-0.5">Ростер Giesen, стабильный профиль</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 p-4 rounded-2xl bg-brand-card border border-brand-border">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+            <i data-lucide="milk" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="font-title text-sm font-bold text-white">Любое молоко</div>
+            <div class="text-xs text-brand-muted mt-0.5">Фермерское цельное или растительное</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 p-4 rounded-2xl bg-brand-card border border-brand-border">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+            <i data-lucide="clock" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="font-title text-sm font-bold text-white">Выпечка с 08:00</div>
+            <div class="text-xs text-brand-muted mt-0.5">Слоёное тесто на чистом масле 82.5%</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 p-4 rounded-2xl bg-brand-card border border-brand-border">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+            <i data-lucide="zap" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="font-title text-sm font-bold text-white">Без очереди to-go</div>
+            <div class="text-xs text-brand-muted mt-0.5">Напиток готов ровно к вашему приходу</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. INTERACTIVE MENU WITH TABS -->
+  <section id="menu" class="py-20 border-b border-brand-border relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header with Carousel Controls -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <span class="text-xs font-bold text-amber-400 tracking-widest uppercase block mb-2">Настоящий вкус</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Фирменное меню Stories</h2>
+        </div>
+
+        <!-- Tab Switchers -->
+        <div class="inline-flex p-1.5 rounded-2xl bg-brand-card border border-brand-border overflow-x-auto scrollbar-none self-start">
+          <button onclick="switchMenuTab('coffee')" id="tab-btn-coffee" class="px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-amber-500 text-black font-bold shadow-md">
+            Спешелти Кофе
+          </button>
+          <button onclick="switchMenuTab('bakery')" id="tab-btn-bakery" class="px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-slate-300 hover:text-white transition-all">
+            Пекарня и Десерты
+          </button>
+          <button onclick="switchMenuTab('beans')" id="tab-btn-beans" class="px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-slate-300 hover:text-white transition-all">
+            Зерно домой (250г)
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Grid: Coffee -->
+      <div id="menu-view-coffee" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Item 1 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+          <div class="relative overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80" alt="Капучино" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-amber-400">250 / 350 мл</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-title text-base font-bold text-white">Капучино Спешелти</h3>
+              <p class="text-xs text-brand-muted mt-1 leading-relaxed">Двойной эспрессо Эфиопия Иргачефф, шелковистая молочная пенка, ноты молочного шоколада и ореха.</p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
+              <span class="font-title text-lg font-bold text-white">220 ₽</span>
+              <button onclick="addToCart('Капучино Спешелти', 220)" class="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-400 hover:text-black font-semibold text-xs transition-colors flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> В корзину
               </button>
             </div>
           </div>
         </div>
 
+        <!-- Item 2 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+          <div class="relative overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80" alt="Фильтр кофе" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-amber-400">250 мл</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-title text-base font-bold text-white">Батч-Брю (Фильтр)</h3>
+              <p class="text-xs text-brand-muted mt-1 leading-relaxed">Чистая капельная заварка. Зерно Колумбия Уила натуральной анаэробной обработки. Ноты черники и бергамота.</p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
+              <span class="font-title text-lg font-bold text-white">200 ₽</span>
+              <button onclick="addToCart('Батч-Брю (Фильтр)', 200)" class="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-400 hover:text-black font-semibold text-xs transition-colors flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+          <div class="relative overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=600&q=80" alt="Раф Банановый пломбир" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-amber-400">350 мл</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-title text-base font-bold text-white">Раф Банановый Пломбир</h3>
+              <p class="text-xs text-brand-muted mt-1 leading-relaxed">Сливки 11%, натуральное банановое пюре, тростниковый сахар с ванилью бурбон и двойной шот эспрессо.</p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
+              <span class="font-title text-lg font-bold text-white">330 ₽</span>
+              <button onclick="addToCart('Раф Банановый Пломбир', 330)" class="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-400 hover:text-black font-semibold text-xs transition-colors flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+          <div class="relative overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=80" alt="Флэт Уайт" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-amber-400">200 мл</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-title text-base font-bold text-white">Флэт Уайт Австралия</h3>
+              <p class="text-xs text-brand-muted mt-1 leading-relaxed">Плотный кофейный вкус. Два ристретто на мытой Кении с тончайшим слоем глянцевой молочной микропенки.</p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
+              <span class="font-title text-lg font-bold text-white">250 ₽</span>
+              <button onclick="addToCart('Флэт Уайт Австралия', 250)" class="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-400 hover:text-black font-semibold text-xs transition-colors flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Grid: Bakery (Hidden initially) -->
+      <div id="menu-view-bakery" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Bakery 1 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+          <div class="relative overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Французский круассан" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-amber-400">120 г</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-title text-base font-bold text-white">Классический круассан</h3>
+              <p class="text-xs text-brand-muted mt-1 leading-relaxed">72 часа созревания слоеного теста. Хрустящая карамельная корочка и воздушный сотовый мякиш на сливочном масле.</p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
+              <span class="font-title text-lg font-bold text-white">180 ₽</span>
+              <button onclick="addToCart('Классический круассан', 180)" class="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-400 hover:text-black font-semibold text-xs transition-colors flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bakery 2 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+          <div class="relative overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80" alt="Чизкейк Сан-Себастьян" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-amber-400">180 г</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-title text-base font-bold text-white">Баскский чизкейк</h3>
+              <p class="text-xs text-brand-muted mt-1 leading-relaxed">Опаленная карамельная корочка и кремовая тающая серединка из сливочного сыра Cremette без муки.</p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
+              <span class="font-title text-lg font-bold text-white">320 ₽</span>
+              <button onclick="addToCart('Баскский чизкейк Сан-Себастьян', 320)" class="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-400 hover:text-black font-semibold text-xs transition-colors flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bakery 3 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+          <div class="relative overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Синнабон с корицей" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-amber-400">160 г</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-title text-base font-bold text-white">Синнабон Цейлон</h3>
+              <p class="text-xs text-brand-muted mt-1 leading-relaxed">Теплая сдобная булочка с цейлонской корицей, соленой карамелью и нежным кремом из маскарпоне.</p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
+              <span class="font-title text-lg font-bold text-white">240 ₽</span>
+              <button onclick="addToCart('Синнабон Цейлон', 240)" class="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-400 hover:text-black font-semibold text-xs transition-colors flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bakery 4 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-amber-500/40 transition-all flex flex-col justify-between group">
+          <div class="relative overflow-hidden h-48">
+            <img src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=600&q=80" alt="Тарталетка с малиной" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 right-3 text-[11px] font-bold px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-amber-400">140 г</span>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-title text-base font-bold text-white">Тарталетка с ягодами</h3>
+              <p class="text-xs text-brand-muted mt-1 leading-relaxed">Песочное сабле на миндальной муке, заварной крем дипломат с мадагаскарской ванилью и свежая малина.</p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
+              <span class="font-title text-lg font-bold text-white">290 ₽</span>
+              <button onclick="addToCart('Тарталетка с ягодами', 290)" class="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500 text-amber-400 hover:text-black font-semibold text-xs transition-colors flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i> В корзину
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Grid: Beans (Hidden initially) -->
+      <div id="menu-view-beans" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-amber-500/40 transition-all">
+          <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">Фильтр / Эспрессо</span>
+          <h3 class="font-title text-lg font-bold text-white mt-3">Эфиопия Иргачефф (250г)</h3>
+          <p class="text-xs text-brand-muted mt-1.5 leading-relaxed">Обработка: мытая. Высота: 1950–2100м. Дескрипторы: жасмин, бергамот, спелый персик, лемонграсс.</p>
+          <div class="mt-5 pt-4 border-t border-brand-border flex items-center justify-between">
+            <span class="font-title text-xl font-bold text-white">890 ₽</span>
+            <button onclick="addToCart('Зерно Эфиопия Иргачефф 250г', 890)" class="px-4 py-2 rounded-xl bg-amber-500 text-black font-bold text-xs transition-all">В корзину</button>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-amber-500/40 transition-all">
+          <span class="text-xs font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">Плотный эспрессо</span>
+          <h3 class="font-title text-lg font-bold text-white mt-3">Колумбия Уила Натуральная (250г)</h3>
+          <p class="text-xs text-brand-muted mt-1.5 leading-relaxed">Анаэробная ферментация 48 часов. Дескрипторы: темный шоколад, вишня в коньяке, карамель.</p>
+          <div class="mt-5 pt-4 border-t border-brand-border flex items-center justify-between">
+            <span class="font-title text-xl font-bold text-white">950 ₽</span>
+            <button onclick="addToCart('Зерно Колумбия Уила 250г', 950)" class="px-4 py-2 rounded-xl bg-amber-500 text-black font-bold text-xs transition-all">В корзину</button>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-amber-500/40 transition-all">
+          <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md">Экзотик микро-лот</span>
+          <h3 class="font-title text-lg font-bold text-white mt-3">Кения Киринъяга АА (250г)</h3>
+          <p class="text-xs text-brand-muted mt-1.5 leading-relaxed">Яркая ягодная кислотность. Дескрипторы: черная смородина, красный грейпфрут, тростниковый сахар.</p>
+          <div class="mt-5 pt-4 border-t border-brand-border flex items-center justify-between">
+            <span class="font-title text-xl font-bold text-white">1 100 ₽</span>
+            <button onclick="addToCart('Зерно Кения Киринъяга АА 250г', 1100)" class="px-4 py-2 rounded-xl bg-amber-500 text-black font-bold text-xs transition-all">В корзину</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. INTERACTIVE 3-STEP TASTE QUIZ -->
+  <section id="quiz" class="py-20 border-b border-brand-border bg-gradient-to-b from-brand-dark via-brand-card/40 to-brand-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold text-amber-400 tracking-widest uppercase block mb-2">Гид по меню</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Подберите свой напиток за 30 секунд</h2>
+        <p class="text-sm text-brand-muted mt-2">Пройдите 3 вопроса и получите скидку 20% на первый заказ в WhatsApp</p>
+      </div>
+
+      <!-- Quiz Card -->
+      <div class="p-6 sm:p-10 rounded-3xl bg-brand-card border border-brand-border shadow-2xl relative">
+        <!-- Progress Bar -->
+        <div class="w-full bg-slate-800 h-2 rounded-full mb-8 overflow-hidden">
+          <div id="quiz-progress" class="bg-amber-500 h-full w-1/3 transition-all duration-300"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div id="quiz-step-1" class="space-y-6">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Шаг 1 из 3</span>
+            <span class="text-xs text-brand-muted">Температура и формат</span>
+          </div>
+          <h3 class="font-title text-lg sm:text-xl font-bold text-white">Какой напиток вам ближе прямо сейчас?</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <button type="button" onclick="selectQuizAnswer(1, 'Горячая кофейная классика')" class="quiz-btn p-5 rounded-2xl border border-brand-border bg-slate-900/60 hover:border-amber-500 text-left transition-all">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3">
+                <i data-lucide="coffee" class="w-5 h-5"></i>
+              </div>
+              <div class="font-bold text-white text-sm">Классика</div>
+              <div class="text-xs text-brand-muted mt-1">Капучино, латте, флэт уайт</div>
+            </button>
+
+            <button type="button" onclick="selectQuizAnswer(1, 'Холодный освежающий')" class="quiz-btn p-5 rounded-2xl border border-brand-border bg-slate-900/60 hover:border-amber-500 text-left transition-all">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3">
+                <i data-lucide="snowflake" class="w-5 h-5"></i>
+              </div>
+              <div class="font-bold text-white text-sm">Холодный / Айс</div>
+              <div class="text-xs text-brand-muted mt-1">Эспрессо-тоник, бамбл, колд брю</div>
+            </button>
+
+            <button type="button" onclick="selectQuizAnswer(1, 'Авторский десертный')" class="quiz-btn p-5 rounded-2xl border border-brand-border bg-slate-900/60 hover:border-amber-500 text-left transition-all">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <div class="font-bold text-white text-sm">Авторский раф</div>
+              <div class="text-xs text-brand-muted mt-1">Сливочный, пряный или фруктовый</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2 (Hidden) -->
+        <div id="quiz-step-2" class="hidden space-y-6">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Шаг 2 из 3</span>
+            <span class="text-xs text-brand-muted">Основа и сладость</span>
+          </div>
+          <h3 class="font-title text-lg sm:text-xl font-bold text-white">Какое молоко или основу предпочитаете?</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <button type="button" onclick="selectQuizAnswer(2, 'Фермерское цельное молоко')" class="quiz-btn p-5 rounded-2xl border border-brand-border bg-slate-900/60 hover:border-amber-500 text-left transition-all">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3">
+                <i data-lucide="milk" class="w-5 h-5"></i>
+              </div>
+              <div class="font-bold text-white text-sm">Фермерское 3.5%</div>
+              <div class="text-xs text-brand-muted mt-1">Плотная кремовая пенка</div>
+            </button>
+
+            <button type="button" onclick="selectQuizAnswer(2, 'Растительное молоко (Миндаль/Кокос/Овёс)')" class="quiz-btn p-5 rounded-2xl border border-brand-border bg-slate-900/60 hover:border-amber-500 text-left transition-all">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3">
+                <i data-lucide="leaf" class="w-5 h-5"></i>
+              </div>
+              <div class="font-bold text-white text-sm">Растительное</div>
+              <div class="text-xs text-brand-muted mt-1">Миндаль, фундук или овёс</div>
+            </button>
+
+            <button type="button" onclick="selectQuizAnswer(2, 'Чистый чёрный кофе без молока')" class="quiz-btn p-5 rounded-2xl border border-brand-border bg-slate-900/60 hover:border-amber-500 text-left transition-all">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 mb-3">
+                <i data-lucide="cup-soda" class="w-5 h-5"></i>
+              </div>
+              <div class="font-bold text-white text-sm">Без молока</div>
+              <div class="text-xs text-brand-muted mt-1">Фильтр, американо или эспрессо</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3 (Hidden) -->
+        <div id="quiz-step-3" class="hidden space-y-6">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Шаг 3 из 3</span>
+            <span class="text-xs text-brand-muted">Свежая выпечка</span>
+          </div>
+          <h3 class="font-title text-lg sm:text-xl font-bold text-white">Добавим что-нибудь из утренней пекарни?</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <button type="button" onclick="selectQuizAnswer(3, 'Хрустящий французский круассан')" class="quiz-btn p-5 rounded-2xl border border-brand-border bg-slate-900/60 hover:border-amber-500 text-left transition-all">
+              <div class="font-bold text-white text-sm">Круассан классик</div>
+              <div class="text-xs text-brand-muted mt-1">Со сливочным маслом 82.5%</div>
+            </button>
+
+            <button type="button" onclick="selectQuizAnswer(3, 'Баскский чизкейк Сан-Себастьян')" class="quiz-btn p-5 rounded-2xl border border-brand-border bg-slate-900/60 hover:border-amber-500 text-left transition-all">
+              <div class="font-bold text-white text-sm">Баскский чизкейк</div>
+              <div class="text-xs text-brand-muted mt-1">Опаленный сырный крем</div>
+            </button>
+
+            <button type="button" onclick="selectQuizAnswer(3, 'Только кофе, без десерта')" class="quiz-btn p-5 rounded-2xl border border-brand-border bg-slate-900/60 hover:border-amber-500 text-left transition-all">
+              <div class="font-bold text-white text-sm">Только напиток</div>
+              <div class="text-xs text-brand-muted mt-1">Хочу насладиться чистым вкусом</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Result Card (Hidden) -->
+        <div id="quiz-result" class="hidden text-center py-6 space-y-6">
+          <div class="w-16 h-16 rounded-full bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center">
+            <i data-lucide="check-circle" class="w-8 h-8"></i>
+          </div>
+
+          <div>
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block">Идеальный матч найден!</span>
+            <h3 id="quiz-recommendation-title" class="font-title text-2xl font-bold text-white mt-1">Капучино Спешелти + Круассан</h3>
+            <p id="quiz-recommendation-desc" class="text-sm text-brand-muted max-w-md mx-auto mt-2">Ваш персональный промокод на скидку 20% готов: <b>STORIES20</b></p>
+          </div>
+
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a id="quiz-wa-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-title font-bold text-sm tracking-wide transition-all shadow-xl shadow-amber-500/20 flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>Забрать заказ со скидкой 20% в WhatsApp</span>
+            </a>
+            <button onclick="resetQuiz()" class="text-xs text-brand-muted hover:text-white underline">Пройти заново</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. BAKERY CRAFT EDITORIAL -->
+  <section id="bakery" class="py-20 border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="space-y-6">
+          <span class="text-xs font-bold text-amber-400 tracking-widest uppercase block">Ремесленное производство</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+            Никаких заморозок. <br>
+            Только чистые ингредиенты.
+          </h2>
+          <p class="text-brand-muted text-sm sm:text-base leading-relaxed">
+            Каждое утро наш цех начинает работу в 04:00, чтобы к 08:00 утра на витрине лежали горячие круассаны с характерным хрустом французской слойки.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white">Новозеландское масло 82.5%</div>
+                <div class="text-xs text-brand-muted mt-0.5">Строгий отказ от пальмового масла, гидрогенизированных жиров и маргарина.</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white">Холодная расстойка 72 часа</div>
+                <div class="text-xs text-brand-muted mt-0.5">Длительная ферментация делает выпечку легкой для пищеварения и раскрывает аромат пшеницы.</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-7 h-7 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white">Натуральные ягоды и бельгийский шоколад</div>
+                <div class="text-xs text-brand-muted mt-0.5">Шоколад Callebaut 54.5%, фисташковая паста без красителей и пюре из свежих ягод.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Свежий круассан" class="rounded-2xl border border-brand-border h-64 object-cover w-full">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Синнабон с корицей" class="rounded-2xl border border-brand-border h-64 object-cover w-full mt-6">
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- MENU SECTION (With Tabs & Quick Add) -->
-  <section id="menu" class="py-20 border-b border-brand-border relative">
+  <!-- 6. TEAM OF BARISTAS & ROASTERS -->
+  <section id="team" class="py-20 border-b border-brand-border bg-brand-card/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-cream mb-4">
-          Меню напитков и кухни
-        </h2>
-        <p class="text-brand-muted text-sm sm:text-base">
-          Выберите категорию, добавьте позиции в заказ и заберите горячий кофе без ожидания в кофейне
-        </p>
-
-        <!-- Category Tabs -->
-        <div class="flex items-center justify-center gap-2 overflow-x-auto scrollbar-none py-4 mt-6">
-          <button onclick="filterMenu('coffee')" id="tab-coffee" class="menu-tab active px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition-all bg-brand-amber text-brand-dark shadow-lg shadow-brand-amber/20 whitespace-nowrap">
-            ☕️ Спешелти Кофе
-          </button>
-          <button onclick="filterMenu('bakery')" id="tab-bakery" class="menu-tab px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition-all bg-brand-card text-brand-muted hover:text-brand-cream border border-brand-border whitespace-nowrap">
-            🥐 Ремесленная пекарня
-          </button>
-          <button onclick="filterMenu('breakfast')" id="tab-breakfast" class="menu-tab px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition-all bg-brand-card text-brand-muted hover:text-brand-cream border border-brand-border whitespace-nowrap">
-            🍳 Завтраки весь день
-          </button>
-          <button onclick="filterMenu('tea')" id="tab-tea" class="menu-tab px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition-all bg-brand-card text-brand-muted hover:text-brand-cream border border-brand-border whitespace-nowrap">
-            🍵 Матча и чаи
-          </button>
-        </div>
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-bold text-amber-400 tracking-widest uppercase block mb-2">Люди за кофемашиной</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Команда профессионалов Stories</h2>
+        <p class="text-sm text-brand-muted mt-2">Сертифицированные бариста SCA и мастера обжарки с многолетним опытом</p>
       </div>
 
-      <!-- Menu Grid -->
-      <div id="menuItemsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- 1. Флэт Уайт -->
-        <div class="menu-item coffee rounded-2xl bg-brand-card border border-brand-border p-5 hover:border-brand-amber/40 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-start justify-between gap-4 mb-2">
-              <h3 class="font-heading font-bold text-base text-brand-cream">Флэт Уайт (Flat White)</h3>
-              <span class="font-heading font-bold text-brand-amberLight whitespace-nowrap">240 ₽</span>
-            </div>
-            <p class="text-xs text-brand-muted leading-relaxed mb-4">Двойной шот эспрессо и тонкая текстурированная молочная пена. Плотный кофейный вкус с нотами темного шоколада.</p>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-brand-border/60">
-            <span class="text-[11px] text-brand-muted">220 мл • 100% арабика</span>
-            <button onclick="addToCart('Флэт Уайт (Flat White)', 240)" class="px-3.5 py-1.5 rounded-lg bg-brand-amber/15 hover:bg-brand-amber text-brand-amberLight hover:text-brand-dark text-xs font-bold transition-all">
-              + В заказ
-            </button>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Person 1 (Male Barista) -->
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border text-center group hover:border-amber-500/40 transition-all">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Михаил Ковалёв" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-2 border-amber-500/30 group-hover:scale-105 transition-transform">
+          <h3 class="font-title text-base font-bold text-white">Михаил Ковалёв</h3>
+          <span class="text-xs text-amber-400 font-semibold block mt-0.5">Шеф-бариста • Опыт 8 лет</span>
+          <p class="text-xs text-brand-muted mt-3 leading-relaxed">Победитель регионального чемпионата бариста Юга. Отвечает за калибровку помола и баланс вкуса каждой чашки.</p>
         </div>
 
-        <!-- 2. Фильтр-кофе -->
-        <div class="menu-item coffee rounded-2xl bg-brand-card border border-brand-border p-5 hover:border-brand-amber/40 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-start justify-between gap-4 mb-2">
-              <h3 class="font-heading font-bold text-base text-brand-cream">Батч-брю Фильтр</h3>
-              <span class="font-heading font-bold text-brand-amberLight whitespace-nowrap">190 ₽</span>
-            </div>
-            <p class="text-xs text-brand-muted leading-relaxed mb-4">Зерно недели: Эфиопия Иргачефф натуральной обработки. Яркая цитрусовая кислотность, ноты бергамота и персика.</p>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-brand-border/60">
-            <span class="text-[11px] text-brand-muted">250 мл • Без молока</span>
-            <button onclick="addToCart('Батч-брю Фильтр', 190)" class="px-3.5 py-1.5 rounded-lg bg-brand-amber/15 hover:bg-brand-amber text-brand-amberLight hover:text-brand-dark text-xs font-bold transition-all">
-              + В заказ
-            </button>
-          </div>
+        <!-- Person 2 (Female Pastry Chef) -->
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border text-center group hover:border-amber-500/40 transition-all">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Анна Соколова" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-2 border-amber-500/30 group-hover:scale-105 transition-transform">
+          <h3 class="font-title text-base font-bold text-white">Анна Соколова</h3>
+          <span class="text-xs text-amber-400 font-semibold block mt-0.5">Шеф-кондитер • Опыт 6 лет</span>
+          <p class="text-xs text-brand-muted mt-3 leading-relaxed">Стажировалась в кондитерских Лиона. Создает баскские чизкейки и авторские круассаны с соленой карамелью.</p>
         </div>
 
-        <!-- 3. Цитрусовый Бамбл -->
-        <div class="menu-item coffee rounded-2xl bg-brand-card border border-brand-border p-5 hover:border-brand-amber/40 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-start justify-between gap-4 mb-2">
-              <h3 class="font-heading font-bold text-base text-brand-cream">Апельсиновый Бамбл</h3>
-              <span class="font-heading font-bold text-brand-amberLight whitespace-nowrap">310 ₽</span>
-            </div>
-            <p class="text-xs text-brand-muted leading-relaxed mb-4">Свежевыжатый сок апельсина, карамельный сироп собственного приготовления и плотный эспрессо со льдом.</p>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-brand-border/60">
-            <span class="text-[11px] text-brand-muted">350 мл • Освежающий</span>
-            <button onclick="addToCart('Апельсиновый Бамбл', 310)" class="px-3.5 py-1.5 rounded-lg bg-brand-amber/15 hover:bg-brand-amber text-brand-amberLight hover:text-brand-dark text-xs font-bold transition-all">
-              + В заказ
-            </button>
-          </div>
+        <!-- Person 3 (Male Roaster) -->
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border text-center group hover:border-amber-500/40 transition-all">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Денис Морозов" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-2 border-amber-500/30 group-hover:scale-105 transition-transform">
+          <h3 class="font-title text-base font-bold text-white">Денис Морозов</h3>
+          <span class="text-xs text-amber-400 font-semibold block mt-0.5">Q-Grader • Обжарщик зерен</span>
+          <p class="text-xs text-brand-muted mt-3 leading-relaxed">Лично отбирает микро-лоты фермеров и прописывает термопрофили обжарки для фильтра и эспрессо.</p>
         </div>
-
-        <!-- 4. Миндальный круассан -->
-        <div class="menu-item bakery rounded-2xl bg-brand-card border border-brand-border p-5 hover:border-brand-amber/40 transition-all flex flex-col justify-between hidden">
-          <div>
-            <div class="flex items-start justify-between gap-4 mb-2">
-              <h3 class="font-heading font-bold text-base text-brand-cream">Французский миндальный круассан</h3>
-              <span class="font-heading font-bold text-brand-amberLight whitespace-nowrap">260 ₽</span>
-            </div>
-            <p class="text-xs text-brand-muted leading-relaxed mb-4">Слоёное тесто на сливочном масле 82.5%, запечённое с франжипаном (миндальным кремом) и лепестками миндаля.</p>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-brand-border/60">
-            <span class="text-[11px] text-brand-muted">140 г • Из печи с 08:00</span>
-            <button onclick="addToCart('Миндальный круассан', 260)" class="px-3.5 py-1.5 rounded-lg bg-brand-amber/15 hover:bg-brand-amber text-brand-amberLight hover:text-brand-dark text-xs font-bold transition-all">
-              + В заказ
-            </button>
-          </div>
-        </div>
-
-        <!-- 5. Синнабон с карамелью -->
-        <div class="menu-item bakery rounded-2xl bg-brand-card border border-brand-border p-5 hover:border-brand-amber/40 transition-all flex flex-col justify-between hidden">
-          <div>
-            <div class="flex items-start justify-between gap-4 mb-2">
-              <h3 class="font-heading font-bold text-base text-brand-cream">Синнабон с соленой карамелью</h3>
-              <span class="font-heading font-bold text-brand-amberLight whitespace-nowrap">230 ₽</span>
-            </div>
-            <p class="text-xs text-brand-muted leading-relaxed mb-4">Воздушная сдобная булочка с ароматной цейлонской корицей под шапкой сливочного сыра и домашней карамели.</p>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-brand-border/60">
-            <span class="text-[11px] text-brand-muted">160 г • Тёплая подача</span>
-            <button onclick="addToCart('Синнабон с карамелью', 230)" class="px-3.5 py-1.5 rounded-lg bg-brand-amber/15 hover:bg-brand-amber text-brand-amberLight hover:text-brand-dark text-xs font-bold transition-all">
-              + В заказ
-            </button>
-          </div>
-        </div>
-
-        <!-- 6. Сырники -->
-        <div class="menu-item breakfast rounded-2xl bg-brand-card border border-brand-border p-5 hover:border-brand-amber/40 transition-all flex flex-col justify-between hidden">
-          <div>
-            <div class="flex items-start justify-between gap-4 mb-2">
-              <h3 class="font-heading font-bold text-base text-brand-cream">Сырники из фермерского творога</h3>
-              <span class="font-heading font-bold text-brand-amberLight whitespace-nowrap">340 ₽</span>
-            </div>
-            <p class="text-xs text-brand-muted leading-relaxed mb-4">3 нежных сырника почти без муки с золотистой корочкой. Подаются с натуральной сметаной и ягодным кули из малины.</p>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-brand-border/60">
-            <span class="text-[11px] text-brand-muted">210 г • Завтрак весь день</span>
-            <button onclick="addToCart('Сырники со сметаной', 340)" class="px-3.5 py-1.5 rounded-lg bg-brand-amber/15 hover:bg-brand-amber text-brand-amberLight hover:text-brand-dark text-xs font-bold transition-all">
-              + В заказ
-            </button>
-          </div>
-        </div>
-
-        <!-- 7. Авокадо тост -->
-        <div class="menu-item breakfast rounded-2xl bg-brand-card border border-brand-border p-5 hover:border-brand-amber/40 transition-all flex flex-col justify-between hidden">
-          <div>
-            <div class="flex items-start justify-between gap-4 mb-2">
-              <h3 class="font-heading font-bold text-base text-brand-cream">Брускетта с авокадо и яйцом пашот</h3>
-              <span class="font-heading font-bold text-brand-amberLight whitespace-nowrap">390 ₽</span>
-            </div>
-            <p class="text-xs text-brand-muted leading-relaxed mb-4">Хрустящий тартин на закваске, крем из спелого авокадо, яйцо пашот, вяленые томаты и смесь семян тыквы и кунжута.</p>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-brand-border/60">
-            <span class="text-[11px] text-brand-muted">230 г • Завтрак весь день</span>
-            <button onclick="addToCart('Брускетта с авокадо', 390)" class="px-3.5 py-1.5 rounded-lg bg-brand-amber/15 hover:bg-brand-amber text-brand-amberLight hover:text-brand-dark text-xs font-bold transition-all">
-              + В заказ
-            </button>
-          </div>
-        </div>
-
-        <!-- 8. Матча Латте -->
-        <div class="menu-item tea rounded-2xl bg-brand-card border border-brand-border p-5 hover:border-brand-amber/40 transition-all flex flex-col justify-between hidden">
-          <div>
-            <div class="flex items-start justify-between gap-4 mb-2">
-              <h3 class="font-heading font-bold text-base text-brand-cream">Японская церемониальная Матча</h3>
-              <span class="font-heading font-bold text-brand-amberLight whitespace-nowrap">280 ₽</span>
-            </div>
-            <p class="text-xs text-brand-muted leading-relaxed mb-4">Оригинальная матча из Киото на кокосовом или овсяном молоке. Шелковистая текстура без горечи и стойкий заряд бодрости.</p>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-brand-border/60">
-            <span class="text-[11px] text-brand-muted">300 мл • Superfood</span>
-            <button onclick="addToCart('Матча Латте', 280)" class="px-3.5 py-1.5 rounded-lg bg-brand-amber/15 hover:bg-brand-amber text-brand-amberLight hover:text-brand-dark text-xs font-bold transition-all">
-              + В заказ
-            </button>
-          </div>
-        </div>
-
       </div>
 
     </div>
   </section>
 
-  <!-- LOYALTY SECTION -->
-  <section id="loyalty" class="py-16 bg-gradient-to-b from-brand-dark to-brand-card/40 border-b border-brand-border">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="p-8 sm:p-12 rounded-3xl glass-card border-brand-amber/30 relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-8">
-        <div class="space-y-3 max-w-xl">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-amber/20 text-brand-amberLight text-xs font-bold uppercase">
-            <i data-lucide="gift" class="w-3.5 h-3.5"></i>
-            <span>Электронная карта гостя</span>
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-cream">
-            Каждый 6-й кофе в подарок
-          </h2>
-          <p class="text-sm text-brand-muted leading-relaxed">
-            Назовите свой номер телефона бариста при заказе или при предзаказе через сайт. Мы автоматически копим ваши чашки и дарим десерт в день рождения.
-          </p>
-        </div>
-        <div class="flex-shrink-0">
-          <button onclick="alert('Для привязки карты лояльности просто укажите ваш телефон при первом заказе в WhatsApp!')" class="px-7 py-3.5 rounded-xl gold-gradient text-brand-dark font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-brand-amber/20 hover:brightness-110 transition-all whitespace-nowrap">
-            Получить карту гостя
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOCATION & MAP SECTION -->
-  <section id="contacts" class="py-16 border-b border-brand-border">
+  <!-- 7. COMPACT REVIEWS CAROUSEL WITH LEFT/RIGHT BUTTONS (SKILL STANDARD) -->
+  <section id="reviews" class="py-20 border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <!-- Section Header with Left / Right Arrows -->
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <span class="text-xs font-bold text-amber-400 tracking-widest uppercase block mb-1">Оценка 5.0 на Яндекс Картах</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Что говорят наши гости</h2>
+        </div>
         
-        <div class="lg:col-span-5 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-amber/10 border border-brand-amber/20 text-brand-amberLight text-xs font-bold uppercase">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
-            <span>Ждём вас в гости</span>
+        <!-- Desktop Arrows «← / →» -->
+        <div class="hidden sm:flex items-center gap-2">
+          <button onclick="scrollCarousel('reviews-carousel', -1)" aria-label="Назад" class="w-10 h-10 rounded-full border border-brand-border bg-brand-card hover:bg-brand-cardHover flex items-center justify-center text-white transition-all active:scale-95">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <button onclick="scrollCarousel('reviews-carousel', 1)" aria-label="Вперед" class="w-10 h-10 rounded-full border border-brand-border bg-brand-card hover:bg-brand-cardHover flex items-center justify-center text-white transition-all active:scale-95">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Swipe Hint -->
+      <div class="flex items-center justify-between sm:hidden mb-3 px-1 text-xs font-semibold text-brand-muted">
+        <span class="inline-flex items-center gap-1.5">
+          <i data-lucide="arrow-right-left" class="w-3.5 h-3.5 text-amber-400"></i>
+          Листайте влево-вправо
+        </span>
+        <span class="text-[11px] text-amber-400">Свайп →</span>
+      </div>
+
+      <!-- Carousel Container (Native snap + scrollCarousel) -->
+      <div id="reviews-carousel" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-6 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+        
+        <!-- Review 1 -->
+        <div class="flex-shrink-0 w-[85vw] max-w-[360px] snap-center p-6 rounded-2xl bg-brand-card border border-brand-border flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+              «Лучший фильтр-кофе в городе. Беру Кению почти каждое утро перед офисом через предзаказ в WhatsApp — к моменту, когда я захожу, стакан уже стоит горячий на стойке. Никаких очередей!»
+            </p>
           </div>
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-brand-border">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Екатерина" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <div class="text-sm font-bold text-white">Екатерина Волкова</div>
+              <div class="text-[11px] text-brand-muted">Краснодар • Постоянный гость</div>
+            </div>
+          </div>
+        </div>
 
-          <h2 class="text-2xl sm:text-3xl font-bold text-brand-cream">
-            Атмосфера, музыка и запах свежего зерна
-          </h2>
+        <!-- Review 2 -->
+        <div class="flex-shrink-0 w-[85vw] max-w-[360px] snap-center p-6 rounded-2xl bg-brand-card border border-brand-border flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+              «Баскский чизкейк — это нечто невероятное. Нежный, сливочный, без приторной сладости. Идеально с флэт уайтом на двойном эспрессо. Ребята держат планку качества уже больше года.»
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-brand-border">
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80" alt="Артем" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <div class="text-sm font-bold text-white">Артем Смирнов</div>
+              <div class="text-[11px] text-brand-muted">Дизайнер интерьеров</div>
+            </div>
+          </div>
+        </div>
 
-          <div class="space-y-4 text-sm">
-            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-brand-card border border-brand-border">
-              <i data-lucide="map-pin" class="w-5 h-5 text-brand-amberLight flex-shrink-0 mt-0.5"></i>
+        <!-- Review 3 -->
+        <div class="flex-shrink-0 w-[85vw] max-w-[360px] snap-center p-6 rounded-2xl bg-brand-card border border-brand-border flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-1 text-amber-400 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+              «Круассаны как в хорошей парижской булочной. Чувствуется настоящее сливочное масло, а не дешевый маргарин. Беру зерно Эфиопия домой для воронки V60 — всегда свежая обжарка.»
+            </p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 pt-4 border-t border-brand-border">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Илья" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <div class="text-sm font-bold text-white">Илья Баринов</div>
+              <div class="text-[11px] text-brand-muted">Любитель спешелти кофе</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. REAL INTERACTIVE YANDEX MAP (EXACT COORDS: KRASNODAR, KRASNAYA 100) -->
+  <section id="contacts" class="py-20 border-b border-brand-border bg-brand-card/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Contact Details -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-bold text-amber-400 tracking-widest uppercase block">Локация</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Ждем вас в гости</h2>
+          
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-card border border-brand-border">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
               <div>
-                <div class="font-bold text-brand-cream">Адрес кофейни:</div>
-                <div class="text-brand-muted text-xs">ул. Красная, 124 (Центральный вход, рядом с фонтаном)</div>
+                <div class="text-sm font-bold text-white">г. Краснодар, ул. Красная, 100</div>
+                <div class="text-xs text-brand-muted mt-0.5">Центральный район, отдельный вход с улицы</div>
               </div>
             </div>
 
-            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-brand-card border border-brand-border">
-              <i data-lucide="clock" class="w-5 h-5 text-brand-amberLight flex-shrink-0 mt-0.5"></i>
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-card border border-brand-border">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+                <i data-lucide="clock" class="w-5 h-5"></i>
+              </div>
               <div>
-                <div class="font-bold text-brand-cream">График работы:</div>
-                <div class="text-brand-muted text-xs">Пн — Вс: 08:00 – 22:00 (Кухня до 21:30)</div>
+                <div class="text-sm font-bold text-white">Ежедневно: 07:30 – 22:00</div>
+                <div class="text-xs text-brand-muted mt-0.5">Выпечка из печи с 08:00 утра без выходных</div>
               </div>
             </div>
 
-            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-brand-card border border-brand-border">
-              <i data-lucide="wifi" class="w-5 h-5 text-brand-amberLight flex-shrink-0 mt-0.5"></i>
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-card border border-brand-border">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
               <div>
-                <div class="font-bold text-brand-cream">Для работы и отдыха:</div>
-                <div class="text-brand-muted text-xs">Скоростной Wi-Fi 100 Мбит/с, розетки у каждого столика, тихая фоновая музыка</div>
+                <div class="text-sm font-bold text-white">+7 (918) 162-16-20</div>
+                <div class="text-xs text-brand-muted mt-0.5">Прямой предзаказ To-Go в WhatsApp</div>
               </div>
             </div>
           </div>
 
           <div class="pt-2">
-            <a href="https://wa.me/79000000000?text=Здравствуйте!%20Хочу%20уточнить%20наличие%20или%20сделать%20заказ" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600/20 border border-emerald-500/40 text-emerald-400 font-bold text-xs uppercase tracking-wider hover:bg-emerald-600/30 transition-all">
+            <a href="https://wa.me/79181621620?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D1%82%D1%8C%20%D0%BF%D0%BE%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D1%8E%20%D0%B8%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%B5%D0%B4%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm transition-all shadow-lg shadow-emerald-600/20 active:scale-95">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
-              <span>Связаться с бариста в WhatsApp</span>
+              <span>Написать бариста в WhatsApp</span>
             </a>
           </div>
         </div>
 
+        <!-- Interactive Map Frame with Exact Roof Coordinates -->
         <div class="lg:col-span-7">
-          <div class="rounded-3xl overflow-hidden border border-brand-border aspect-[16/10] bg-brand-card relative shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" alt="Интерьер кофейни" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent flex items-end p-6">
-              <div class="text-xs text-brand-muted flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>Сейчас открыто • Свободные столики есть</span>
-              </div>
-            </div>
+          <div class="rounded-3xl overflow-hidden border border-brand-border shadow-2xl h-[420px] bg-brand-card relative">
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=38.973254%2C45.032039&z=17&pt=38.973254,45.032039,pm2rdm" width="100%" height="100%" frameborder="0" allowfullscreen="true" style="position:relative; filter: contrast(1.05) saturate(1.1);" title="Stories Coffee на карте Краснодара"></iframe>
           </div>
         </div>
-
       </div>
+
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-12 bg-black/40 border-t border-brand-border text-xs text-brand-muted">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-      <div>
-        <div class="font-heading font-bold text-sm text-brand-cream mb-1">STORIES COFFEE & BAKERY</div>
-        <div>ИП Кофеваров А.В. • ИНН 231012345678 • ОГРНИП 320237500012345</div>
-        <div class="text-[10px] text-brand-muted/70 mt-1">ХОСТИНГ И БАЗЫ ДАННЫХ — РОССИЙСКАЯ ФЕДЕРАЦИЯ (Ч. 5 СТ. 18 152-ФЗ)</div>
+  <!-- 9. FAQ ACCORDION -->
+  <section class="py-20 border-b border-brand-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold text-amber-400 tracking-widest uppercase block mb-2">Ответы на вопросы</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Часто задаваемые вопросы</h2>
       </div>
 
-      <div class="flex flex-wrap items-center justify-center gap-4 text-xs">
-        <button onclick="openLegalModal('privacy')" class="hover:text-brand-amberLight transition-colors">Политика конфиденциальности</button>
-        <span>•</span>
-        <button onclick="openLegalModal('terms')" class="hover:text-brand-amberLight transition-colors">Пользовательское соглашение</button>
-        <span>•</span>
-        <button onclick="openLegalModal('cookies')" class="hover:text-brand-amberLight transition-colors">Файлы Cookie</button>
+      <div class="space-y-4">
+        <!-- Q1 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border p-6 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex items-center justify-between">
+            <h3 class="font-title text-sm sm:text-base font-bold text-white">Как работает предзаказ без очереди в WhatsApp?</h3>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform"></i>
+          </div>
+          <div class="hidden text-xs sm:text-sm text-brand-muted mt-3 leading-relaxed border-t border-brand-border pt-3">
+            Вы выбираете напитки и десерты на сайте, нажимаете «Оформить в WhatsApp» и отправляете сформированное сообщение. Бариста сразу подтверждает время готовности (например, через 10 минут). Вы заходите в кофейню, называете имя и сразу забираете горячий заказ.
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border p-6 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex items-center justify-between">
+            <h3 class="font-title text-sm sm:text-base font-bold text-white">Есть ли растительное молоко без доплаты?</h3>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform"></i>
+          </div>
+          <div class="hidden text-xs sm:text-sm text-brand-muted mt-3 leading-relaxed border-t border-brand-border pt-3">
+            Да! У нас всегда в наличии миндальное, овсяное, кокосовое и соевое молоко Alpro Barista. Любой кофейный напиток мы приготовим на вашей любимой растительной основе.
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="rounded-2xl bg-brand-card border border-brand-border p-6 cursor-pointer" onclick="toggleFaq(this)">
+          <div class="flex items-center justify-between">
+            <h3 class="font-title text-sm sm:text-base font-bold text-white">Можно ли помолоть зерно под мой способ заваривания?</h3>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform"></i>
+          </div>
+          <div class="hidden text-xs sm:text-sm text-brand-muted mt-3 leading-relaxed border-t border-brand-border pt-3">
+            Конечно. При покупке пачки зерна (250г) бариста бесплатно намелет его на профессиональной кофемолке Mahlkonig EK43 строго под турку, гейзерную кофеварку, эспрессо, фильтр или френч-пресс.
+          </div>
+        </div>
       </div>
+
+    </div>
+  </section>
+
+  <!-- 10. LEGAL FOOTER (152-FZ + REQUISITES) -->
+  <footer class="py-12 bg-black text-slate-400 text-xs border-t border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-brand-border pb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center text-black font-title font-black text-sm">
+            S
+          </div>
+          <span class="font-title text-white font-bold tracking-tight">STORIES SPECIALTY COFFEE</span>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <a href="javascript:void(0)" onclick="openLegalModal('privacy')" class="hover:text-amber-400 transition-colors">Политика конфиденциальности</a>
+          <a href="javascript:void(0)" onclick="openLegalModal('terms')" class="hover:text-amber-400 transition-colors">Пользовательское соглашение</a>
+          <a href="javascript:void(0)" onclick="openLegalModal('cookies')" class="hover:text-amber-400 transition-colors">Политика Cookie</a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          © 2026 Stories Specialty Coffee & Bakery. Все права защищены. ИП Ковалев М. В. • ОГРНИП 321237500018921 • ИНН 231018942102 • Краснодар
+        </div>
+        <div class="tracking-wider uppercase font-semibold text-slate-400">
+          ХОСТИНГ И БАЗЫ ДАННЫХ — РОССИЙСКАЯ ФЕДЕРАЦИЯ (Ч. 5 СТ. 18 152-ФЗ)
+        </div>
+      </div>
+
     </div>
   </footer>
 
-  <!-- CART / PRE-ORDER DRAWER -->
-  <div id="cartDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-brand-card border-l border-brand-border shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+  <!-- CART FLOATING BAR (ON MOBILE / DESKTOP) -->
+  <div id="cart-bar" class="fixed bottom-6 inset-x-4 max-w-md mx-auto rounded-2xl bg-amber-500 text-black p-4 shadow-2xl shadow-amber-500/30 border border-amber-400 z-30 hidden flex items-center justify-between">
+    <div>
+      <span class="text-xs font-bold uppercase tracking-wider block text-black/80">Ваш заказ:</span>
+      <span id="cart-total-text" class="font-title text-base font-black text-black">0 ₽ (0 позиций)</span>
+    </div>
+    <button onclick="toggleCartDrawer(true)" class="px-5 py-2.5 rounded-xl bg-black text-white font-title text-xs font-bold hover:bg-slate-900 transition-colors flex items-center gap-1.5">
+      <span>Открыть корзину</span>
+      <i data-lucide="arrow-right" class="w-4 h-4"></i>
+    </button>
+  </div>
+
+  <!-- CART SLIDE-OVER DRAWER -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden transition-opacity" onclick="toggleCartDrawer(false)"></div>
+  <div id="cart-drawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-brand-card border-l border-brand-border z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between shadow-2xl">
+    
     <div class="p-6 border-b border-brand-border flex items-center justify-between">
-      <div class="flex items-center gap-2 font-heading font-bold text-base text-brand-cream">
-        <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-amberLight"></i>
-        <span>Ваш предзаказ to-go</span>
+      <div class="flex items-center gap-2">
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-400"></i>
+        <h3 class="font-title text-base font-bold text-white">Ваш заказ To-Go</h3>
       </div>
-      <button onclick="toggleCart()" class="p-1 rounded-lg hover:bg-brand-dark text-brand-muted hover:text-brand-cream">
+      <button onclick="toggleCartDrawer(false)" class="p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
 
     <!-- Items List -->
-    <div id="cartItemsList" class="flex-1 overflow-y-auto p-6 space-y-3">
-      <div id="cartEmptyMessage" class="text-center py-12 text-brand-muted text-sm">
-        <i data-lucide="coffee" class="w-12 h-12 mx-auto text-brand-border mb-3"></i>
-        <span>В заказе пока пусто.<br>Выберите напитки и выпечку из меню выше!</span>
+    <div id="cart-items-container" class="p-6 overflow-y-auto space-y-4 flex-1">
+      <div class="text-center py-12 text-brand-muted text-xs">
+        Ваша корзина пуста. Добавьте любимый кофе или свежую выпечку из меню!
       </div>
     </div>
 
-    <!-- Footer Checkout -->
-    <div class="p-6 border-t border-brand-border bg-brand-dark/80 space-y-4">
+    <!-- Drawer Footer -->
+    <div class="p-6 border-t border-brand-border bg-brand-dark/50 space-y-4">
       <div class="flex items-center justify-between text-sm">
-        <span class="text-brand-muted">Итого к оплате при получении:</span>
-        <span id="cartTotalSum" class="font-heading font-bold text-lg text-brand-amberLight">0 ₽</span>
+        <span class="text-brand-muted">Итого к оплате:</span>
+        <span id="drawer-total-price" class="font-title text-xl font-bold text-white">0 ₽</span>
       </div>
 
-      <div class="text-[11px] text-brand-muted flex items-center gap-2">
-        <i data-lucide="clock" class="w-4 h-4 text-emerald-400"></i>
-        <span>Время готовности: <b>через 10–15 минут</b> после отправки</span>
-      </div>
+      <!-- Consent 152-FZ Checkbox -->
+      <label class="flex items-start gap-2.5 cursor-pointer text-[11px] text-slate-400 select-none">
+        <input type="checkbox" id="cart-consent" onchange="toggleOrderButton()" class="mt-0.5 rounded border-slate-700 text-amber-500 focus:ring-0">
+        <span>Даю согласие на обработку персональных данных по <a href="javascript:void(0)" onclick="openLegalModal('privacy')" class="text-amber-400 underline">152-ФЗ</a></span>
+      </label>
 
-      <button onclick="sendOrderToWhatsApp()" id="sendOrderBtn" disabled class="w-full py-4 rounded-xl gold-gradient text-brand-dark font-extrabold text-xs uppercase tracking-wider disabled:opacity-40 disabled:cursor-not-allowed hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-amber/20">
+      <button id="send-order-btn" onclick="sendOrderToWhatsApp()" disabled class="w-full py-4 rounded-xl bg-amber-500 disabled:opacity-40 disabled:cursor-not-allowed text-black font-title font-bold text-sm tracking-wide transition-all shadow-xl shadow-amber-500/25 flex items-center justify-center gap-2">
         <i data-lucide="message-circle" class="w-4 h-4"></i>
-        <span>Отправить предзаказ в WhatsApp</span>
+        <span>Оформить заказ в WhatsApp</span>
       </button>
     </div>
   </div>
 
-  <!-- BACKDROP FOR DRAWER -->
-  <div id="cartBackdrop" onclick="toggleCart()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden transition-opacity"></div>
+  <!-- 11. COOKIE CONSENT BANNER (WITH LOCALSTORAGE) -->
+  <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 sm:right-auto sm:max-w-md p-5 rounded-2xl bg-brand-card/95 border border-brand-border shadow-2xl backdrop-blur-md z-40 hidden space-y-3">
+    <div class="flex items-start justify-between gap-3">
+      <div class="flex items-center gap-2 text-amber-400 font-title text-xs font-bold">
+        <i data-lucide="cookie" class="w-4 h-4"></i>
+        <span>Файлы Cookie</span>
+      </div>
+      <button onclick="dismissCookieBanner()" class="text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+    <p class="text-xs text-brand-muted leading-relaxed">
+      Мы используем технические файлы cookie для корректной работы корзины и сохранения ваших предпочтений.
+    </p>
+    <div class="flex items-center gap-3 pt-1">
+      <button onclick="acceptCookieConsent()" class="px-4 py-2 rounded-xl bg-amber-500 text-black font-bold text-xs hover:bg-amber-600 transition-colors">
+        Принять и продолжить
+      </button>
+      <a href="javascript:void(0)" onclick="openLegalModal('cookies')" class="text-xs text-slate-400 hover:text-white underline">
+        Подробнее
+      </a>
+    </div>
+  </div>
 
-  <!-- LEGAL MODAL -->
-  <div id="legalModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-brand-card border border-brand-border rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
-      <div class="p-4 border-b border-brand-border flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <button onclick="switchLegalTab('privacy')" id="ltab-privacy" class="px-3 py-1.5 rounded-lg text-xs font-bold text-brand-amberLight bg-brand-amber/15">Политика 152-ФЗ</button>
-          <button onclick="switchLegalTab('terms')" id="ltab-terms" class="px-3 py-1.5 rounded-lg text-xs font-bold text-brand-muted hover:text-brand-cream">Оферта</button>
-          <button onclick="switchLegalTab('cookies')" id="ltab-cookies" class="px-3 py-1.5 rounded-lg text-xs font-bold text-brand-muted hover:text-brand-cream">Cookie</button>
+  <!-- 12. 3-TAB LEGAL MODAL HUB (152-FZ, TERMS, COOKIES) -->
+  <div id="legal-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-brand-card border border-brand-border rounded-3xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      
+      <!-- Modal Header with Tabs -->
+      <div class="p-6 border-b border-brand-border flex items-center justify-between">
+        <div class="flex items-center gap-2 sm:gap-4 overflow-x-auto scrollbar-none">
+          <button onclick="switchLegalTab('privacy')" id="legal-tab-btn-privacy" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-black transition-all">
+            152-ФЗ Политика
+          </button>
+          <button onclick="switchLegalTab('terms')" id="legal-tab-btn-terms" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-all">
+            Оферта (437 ГК)
+          </button>
+          <button onclick="switchLegalTab('cookies')" id="legal-tab-btn-cookies" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-all">
+            Cookie
+          </button>
         </div>
-        <button onclick="closeLegalModal()" class="text-brand-muted hover:text-brand-cream p-1"><i data-lucide="x" class="w-5 h-5"></i></button>
+        <button onclick="closeLegalModal()" class="p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
       </div>
-      <div id="legalModalBody" class="p-6 overflow-y-auto text-xs text-brand-muted leading-relaxed space-y-4">
-        <!-- Injected via JS -->
+
+      <!-- Modal Body Content -->
+      <div class="p-6 overflow-y-auto text-xs text-slate-300 space-y-4 leading-relaxed font-normal">
+        
+        <!-- Tab 1: Privacy 152-FZ -->
+        <div id="legal-content-privacy">
+          <h4 class="font-title text-sm font-bold text-white mb-2">Политика обработки персональных данных (152-ФЗ РФ)</h4>
+          <p>1. <b>Оператор:</b> Индивидуальный предприниматель Ковалев Михаил Владимирович (ОГРНИП 321237500018921, ИНН 231018942102), осуществляющий деятельность в кофейне Stories Specialty Coffee по адресу: г. Краснодар, ул. Красная, 100.</p>
+          <p>2. <b>Цель сбора данных:</b> обработка входящих заявок и предварительных заказов to-go в WhatsApp, информирование о готовности напитков и предоставление скидок по программе лояльности.</p>
+          <p>3. <b>Состав данных:</b> имя клиента, номер телефона для связи в мессенджере WhatsApp, состав оформленного заказа.</p>
+          <p>4. <b>Локализация баз данных (ч. 5 ст. 18 152-ФЗ):</b> Все персональные данные граждан Российской Федерации обрабатываются и хранятся на серверах, физически расположенных исключительно на территории Российской Федерации.</p>
+          <p>5. <b>Срок обработки и отзыв согласия:</b> согласие действует бессрочно до момента отзыва. Пользователь вправе в любой момент отозвать согласие, направив сообщение в WhatsApp на номер +7 (918) 162-16-20. Запрос обрабатывается в срок до 10 рабочих дней.</p>
+        </div>
+
+        <!-- Tab 2: Terms & ст. 437 ГК РФ -->
+        <div id="legal-content-terms" class="hidden">
+          <h4 class="font-title text-sm font-bold text-white mb-2">Пользовательское соглашение и условия предзаказа</h4>
+          <p>1. <b>Отказ от публичной оферты (ст. 437 ГК РФ):</b> Настоящий сайт носит исключительно ознакомительный и демонстрационный характер. Информация о ценах, составе блюд и напитков не является публичной офертой.</p>
+          <p>2. <b>Оформление предзаказа:</b> Нажатие кнопки «Оформить в WhatsApp» формирует текстовое сообщение с перечнем выбранных позиций. Окончательное подтверждение заказа, времени выдачи и расчет происходят при личном подтверждении бариста в чате.</p>
+          <p>3. <b>Оплата:</b> Оплата заказа осуществляется безналичным расчетом или наличными средствами непосредственно при получении заказа в кофейне.</p>
+        </div>
+
+        <!-- Tab 3: Cookies -->
+        <div id="legal-content-cookies" class="hidden">
+          <h4 class="font-title text-sm font-bold text-white mb-2">Политика использования файлов Cookie</h4>
+          <p>1. На сайте используются исключительно технические файлы cookie, необходимые для поддержания работы корзины покупок и сохранения статуса согласия с политикой.</p>
+          <p>2. Мы не передаем файлы cookie сторонним аналитическим корпорациям без вашего ведома.</p>
+          <p>3. Вы можете в любой момент отключить сохранение cookie в настройках вашего браузера (Chrome, Safari, Яндекс.Браузер).</p>
+        </div>
+
       </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 border-t border-brand-border bg-brand-dark/40 flex justify-end">
+        <button onclick="closeLegalModal()" class="px-5 py-2 rounded-xl bg-amber-500 text-black font-bold text-xs hover:bg-amber-600 transition-colors">
+          Понятно
+        </button>
+      </div>
+
     </div>
   </div>
 
-  <!-- COOKIE CONSENT -->
-  <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-md z-40 p-4 rounded-2xl glass-card border-brand-border shadow-2xl flex items-center justify-between gap-4 hidden">
-    <div class="text-xs text-brand-muted">
-      Мы используем файлы cookie для удобства работы онлайн-меню. 
-    </div>
-    <button onclick="acceptCookies()" class="px-4 py-2 rounded-lg bg-brand-amber text-brand-dark font-bold text-xs whitespace-nowrap hover:bg-brand-amberLight transition-colors">
-      Понятно
-    </button>
-  </div>
-
+  <!-- SCRIPT ENGINE -->
   <script>
+    // Initialize Lucide Icons
     lucide.createIcons();
 
-    // Menu filtering
-    function filterMenu(category) {
-      document.querySelectorAll('.menu-tab').forEach(t => {
-        t.classList.remove('active', 'bg-brand-amber', 'text-brand-dark', 'shadow-lg');
-        t.classList.add('bg-brand-card', 'text-brand-muted', 'border');
-      });
-      const activeTab = document.getElementById('tab-' + category);
-      if (activeTab) {
-        activeTab.classList.add('active', 'bg-brand-amber', 'text-brand-dark', 'shadow-lg');
-        activeTab.classList.remove('bg-brand-card', 'text-brand-muted', 'border');
-      }
-
-      document.querySelectorAll('.menu-item').forEach(item => {
-        if (item.classList.contains(category)) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
-        }
-      });
+    // 1. CAROUSEL SCROLL ENGINE (SKILL STANDARD: 5 LINES VANILLA JS)
+    function scrollCarousel(id, direction) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const card = el.querySelector('.snap-center') || el.firstElementChild;
+      const step = card ? card.offsetWidth + 24 : 360;
+      el.scrollBy({ left: direction * step, behavior: 'smooth' });
     }
 
-    // Cart system
+    // 2. MENU TABS
+    function switchMenuTab(category) {
+      const views = ['coffee', 'bakery', 'beans'];
+      views.forEach(v => {
+        const viewEl = document.getElementById(`menu-view-${v}`);
+        const btnEl = document.getElementById(`tab-btn-${v}`);
+        if (v === category) {
+          viewEl.classList.remove('hidden');
+          btnEl.className = 'px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-amber-500 text-black font-bold shadow-md';
+        } else {
+          viewEl.classList.add('hidden');
+          btnEl.className = 'px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm text-slate-300 hover:text-white transition-all';
+        }
+      });
+      lucide.createIcons();
+    }
+
+    // 3. CART SYSTEM
     let cart = [];
 
     function addToCart(title, price) {
-      cart.push({ title, price });
-      updateCartUI();
-      // Open drawer on first add
-      if (cart.length === 1) {
-        toggleCart(true);
+      const existing = cart.find(i => i.title === title);
+      if (existing) {
+        existing.count++;
+      } else {
+        cart.push({ title, price, count: 1 });
       }
+      renderCartUI();
+      // Animate cart button
+      const counter = document.getElementById('cart-counter');
+      counter.classList.add('scale-125');
+      setTimeout(() => counter.classList.remove('scale-125'), 200);
     }
 
-    function removeFromCart(idx) {
-      cart.splice(idx, 1);
-      updateCartUI();
+    function changeCartItemCount(title, delta) {
+      const item = cart.find(i => i.title === title);
+      if (!item) return;
+      item.count += delta;
+      if (item.count <= 0) {
+        cart = cart.filter(i => i.title !== title);
+      }
+      renderCartUI();
     }
 
-    function updateCartUI() {
-      const badge = document.getElementById('cartBadge');
-      const list = document.getElementById('cartItemsList');
-      const emptyMsg = document.getElementById('cartEmptyMessage');
-      const totalEl = document.getElementById('cartTotalSum');
-      const btn = document.getElementById('sendOrderBtn');
+    function renderCartUI() {
+      const totalCount = cart.reduce((sum, i) => sum + i.count, 0);
+      const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.count), 0);
 
-      badge.innerText = cart.length;
-      badge.classList.toggle('hidden', cart.length === 0);
+      // Header Counter
+      const counter = document.getElementById('cart-counter');
+      if (totalCount > 0) {
+        counter.textContent = totalCount;
+        counter.classList.remove('hidden');
+      } else {
+        counter.classList.add('hidden');
+      }
+
+      // Floating Bottom Bar
+      const bar = document.getElementById('cart-bar');
+      const barTotal = document.getElementById('cart-total-text');
+      if (totalCount > 0) {
+        barTotal.textContent = `${totalPrice} ₽ (${totalCount} поз.)`;
+        bar.classList.remove('hidden');
+      } else {
+        bar.classList.add('hidden');
+      }
+
+      // Drawer Content
+      const container = document.getElementById('cart-items-container');
+      const drawerPrice = document.getElementById('drawer-total-price');
+      drawerPrice.textContent = `${totalPrice} ₽`;
 
       if (cart.length === 0) {
-        emptyMsg.classList.remove('hidden');
-        list.innerHTML = '';
-        list.appendChild(emptyMsg);
-        totalEl.innerText = '0 ₽';
-        btn.disabled = true;
+        container.innerHTML = `
+          <div class="text-center py-12 text-brand-muted text-xs">
+            Ваша корзина пуста. Добавьте любимый кофе или свежую выпечку из меню!
+          </div>
+        `;
       } else {
-        emptyMsg.classList.add('hidden');
-        list.innerHTML = '';
-        let sum = 0;
-        cart.forEach((item, idx) => {
-          sum += item.price;
-          const el = document.createElement('div');
-          el.className = 'flex items-center justify-between p-3 rounded-xl bg-brand-dark/90 border border-brand-border text-xs';
-          el.innerHTML = `
-            <div>
-              <div class="font-bold text-brand-cream">${item.title}</div>
-              <div class="text-brand-amberLight font-mono">${item.price} ₽</div>
+        container.innerHTML = cart.map(i => `
+          <div class="p-3.5 rounded-xl bg-slate-900/60 border border-brand-border flex items-center justify-between">
+            <div class="pr-2">
+              <div class="text-sm font-bold text-white">${i.title}</div>
+              <div class="text-xs text-amber-400 mt-0.5">${i.price * i.count} ₽ (${i.price} ₽/шт)</div>
             </div>
-            <button onclick="removeFromCart(${idx})" class="p-1 rounded text-red-400 hover:text-red-300">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-            </button>
-          `;
-          list.appendChild(el);
-        });
-        totalEl.innerText = sum + ' ₽';
-        btn.disabled = false;
+            <div class="flex items-center gap-2">
+              <button onclick="changeCartItemCount('${i.title}', -1)" class="w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center justify-center">-</button>
+              <span class="text-xs font-bold text-white w-4 text-center">${i.count}</span>
+              <button onclick="changeCartItemCount('${i.title}', 1)" class="w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center justify-center">+</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      toggleOrderButton();
+      lucide.createIcons();
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const overlay = document.getElementById('cart-drawer-overlay');
+      if (open) {
+        overlay.classList.remove('hidden');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        drawer.classList.add('translate-x-full');
+        setTimeout(() => overlay.classList.add('hidden'), 300);
       }
     }
 
-    function toggleCart(forceOpen) {
-      const drawer = document.getElementById('cartDrawer');
-      const backdrop = document.getElementById('cartBackdrop');
-      const isOpen = !drawer.classList.contains('translate-x-full');
-      
-      if (forceOpen === true || !isOpen) {
-        drawer.classList.remove('translate-x-full');
-        backdrop.classList.remove('hidden');
-      } else {
-        drawer.classList.add('translate-x-full');
-        backdrop.classList.add('hidden');
-      }
+    function toggleOrderButton() {
+      const consent = document.getElementById('cart-consent').checked;
+      const btn = document.getElementById('send-order-btn');
+      btn.disabled = !(consent && cart.length > 0);
     }
 
     function sendOrderToWhatsApp() {
       if (cart.length === 0) return;
-      let text = 'Здравствуйте! Хочу сделать предзаказ to-go в Stories Coffee:\\n\\n';
-      let sum = 0;
-      cart.forEach((item, idx) => {
-        text += `${idx + 1}. ${item.title} — ${item.price} ₽\\n`;
-        sum += item.price;
-      });
-      text += `\\nИтого: ${sum} ₽\\nБуду примерно через 15 минут! Подтвердите, пожалуйста.`;
-      const url = 'https://wa.me/79000000000?text=' + encodeURIComponent(text);
+      const itemsList = cart.map(i => `• ${i.title} x${i.count} — ${i.price * i.count} ₽`).join('\n');
+      const total = cart.reduce((sum, i) => sum + (i.price * i.count), 0);
+      
+      const text = `Здравствуйте! Хочу оформить предзаказ to-go в Stories:\n\n${itemsList}\n\nИтого: ${total} ₽\n\nПодскажите, через сколько минут можно подойти забрать?`;
+      const url = `https://wa.me/79181621620?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
     }
 
-    // Legal modal
-    const legalTexts = {
-      privacy: `
-        <h4 class="font-bold text-sm text-brand-cream mb-2">Политика конфиденциальности (152-ФЗ)</h4>
-        <p>1. Оператор персональных данных: ИП Кофеваров А.В., ОГРНИП 320237500012345.</p>
-        <p>2. Настоящая Политика регламентирует порядок обработки и защиты персональных данных пользователей при формировании онлайн-предзаказа.</p>
-        <p>3. Состав обрабатываемых данных: имя, номер телефона, перечень позиций заказа.</p>
-        <p>4. Цель обработки: подтверждение предзаказа и начисление бонусов по карте лояльности.</p>
-        <p>5. Локализация данных: базы данных и серверы расположены на территории Российской Федерации (ч. 5 ст. 18 152-ФЗ).</p>
-      `,
-      terms: `
-        <h4 class="font-bold text-sm text-brand-cream mb-2">Пользовательское соглашение и оферта</h4>
-        <p>1. Настоящий сайт носит ознакомительный характер и является онлайн-витриной меню.</p>
-        <p>2. Цены и ассортимент соответствуют актуальному наличию в кофейне на момент формирования предзаказа.</p>
-        <p>3. Оплата производится гостем непосредственно при получении заказа (наличными или банковской картой).</p>
-      `,
-      cookies: `
-        <h4 class="font-bold text-sm text-brand-cream mb-2">Политика файлов Cookie</h4>
-        <p>1. Сайт использует технические файлы cookie для сохранения позиций вашей корзины и предзаказа.</p>
-        <p>2. Вы можете отключить сохранение cookie в настройках вашего браузера в любой момент.</p>
-      `
-    };
+    // 4. QUIZ ENGINE
+    let quizAnswers = {};
 
+    function selectQuizAnswer(step, answer) {
+      quizAnswers[step] = answer;
+      const progress = document.getElementById('quiz-progress');
+
+      if (step === 1) {
+        document.getElementById('quiz-step-1').classList.add('hidden');
+        document.getElementById('quiz-step-2').classList.remove('hidden');
+        progress.style.width = '66%';
+      } else if (step === 2) {
+        document.getElementById('quiz-step-2').classList.add('hidden');
+        document.getElementById('quiz-step-3').classList.remove('hidden');
+        progress.style.width = '100%';
+      } else if (step === 3) {
+        document.getElementById('quiz-step-3').classList.add('hidden');
+        showQuizResult();
+      }
+    }
+
+    function showQuizResult() {
+      const resultEl = document.getElementById('quiz-result');
+      const titleEl = document.getElementById('quiz-recommendation-title');
+      const linkEl = document.getElementById('quiz-wa-link');
+
+      let rec = 'Капучино Спешелти + Баскский чизкейк';
+      if (quizAnswers[1] && quizAnswers[1].includes('Холодный')) {
+        rec = 'Бамбл Апельсин + Тарталетка с ягодами';
+      } else if (quizAnswers[2] && quizAnswers[2].includes('Без молока')) {
+        rec = 'Батч-Брю Колумбия Уила + Французский круассан';
+      } else if (quizAnswers[1] && quizAnswers[1].includes('Авторский')) {
+        rec = 'Раф Банановый Пломбир + Синнабон Цейлон';
+      }
+
+      titleEl.textContent = rec;
+      const waText = `Здравствуйте! Прошел квиз вкуса на сайте. Мой персональный выбор: ${rec}. Хочу оформить предзаказ со скидкой 20% по промокоду STORIES20!`;
+      linkEl.href = `https://wa.me/79181621620?text=${encodeURIComponent(waText)}`;
+
+      resultEl.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function resetQuiz() {
+      quizAnswers = {};
+      document.getElementById('quiz-result').classList.add('hidden');
+      document.getElementById('quiz-step-1').classList.remove('hidden');
+      document.getElementById('quiz-progress').style.width = '33%';
+    }
+
+    // 5. FAQ TOGGLE
+    function toggleFaq(card) {
+      const content = card.querySelector('div:nth-child(2)');
+      const icon = card.querySelector('i');
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // 6. COOKIE BANNER WITH LOCALSTORAGE
+    function checkCookieConsent() {
+      if (!localStorage.getItem('cookie_consent_accepted')) {
+        setTimeout(() => {
+          document.getElementById('cookie-banner').classList.remove('hidden');
+        }, 1500);
+      }
+    }
+
+    function acceptCookieConsent() {
+      localStorage.setItem('cookie_consent_accepted', 'true');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
+    function dismissCookieBanner() {
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
+    // 7. LEGAL MODAL WITH 3 TABS
     function openLegalModal(tab) {
-      document.getElementById('legalModal').classList.remove('hidden');
-      switchLegalTab(tab);
+      document.getElementById('legal-modal').classList.remove('hidden');
+      switchLegalTab(tab || 'privacy');
     }
+
     function closeLegalModal() {
-      document.getElementById('legalModal').classList.add('hidden');
+      document.getElementById('legal-modal').classList.add('hidden');
     }
+
     function switchLegalTab(tab) {
-      ['privacy', 'terms', 'cookies'].forEach(t => {
-        const btn = document.getElementById('ltab-' + t);
+      const tabs = ['privacy', 'terms', 'cookies'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`legal-tab-btn-${t}`);
+        const content = document.getElementById(`legal-content-${t}`);
         if (t === tab) {
-          btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold text-brand-amberLight bg-brand-amber/15';
+          btn.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-black transition-all';
+          content.classList.remove('hidden');
         } else {
-          btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold text-brand-muted hover:text-brand-cream';
+          btn.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-all';
+          content.classList.add('hidden');
         }
       });
-      document.getElementById('legalModalBody').innerHTML = legalTexts[tab] || '';
     }
 
-    // Cookie banner
-    if (!localStorage.getItem('coffee_cookies_accepted')) {
-      document.getElementById('cookieBanner').classList.remove('hidden');
-    }
-    function acceptCookies() {
-      localStorage.setItem('coffee_cookies_accepted', 'true');
-      document.getElementById('cookieBanner').classList.add('hidden');
-    }
+    // On Load
+    document.addEventListener('DOMContentLoaded', () => {
+      checkCookieConsent();
+    });
   </script>
 </body>
 </html>
